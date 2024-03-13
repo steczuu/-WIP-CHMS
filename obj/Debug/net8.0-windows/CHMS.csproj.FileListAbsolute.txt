@@ -73,3 +73,4 @@ C:\Users\stecz\source\repos\LMS\LMS\obj\Debug\net8.0-windows\CHMS.csproj.Up2Date
 C:\Users\stecz\source\repos\LMS\LMS\obj\Debug\net8.0-windows\Styles\Style_Page.baml
 C:\Users\stecz\source\repos\LMS\LMS\obj\Debug\net8.0-windows\App.baml
 C:\Users\stecz\source\repos\LMS\LMS\obj\Debug\net8.0-windows\Resources\DataTemplate.baml
+C:\Users\stecz\source\repos\LMS\LMS\obj\Debug\net8.0-windows\CHMS.sourcelink.json

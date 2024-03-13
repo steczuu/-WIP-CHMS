@@ -8,7 +8,7 @@ using CHMS.Resources;
 
 namespace CHMS.ViewModels
 {
-    class HomeViewModel : ViewModelBase
+    public class HomeViewModel : ViewModelBase
     {
         private readonly TestModel _testModel;
         public string Example

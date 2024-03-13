@@ -8,7 +8,7 @@ using CHMS.Resources;
 
 namespace CHMS.ViewModels
 {
-    class AvailableCarsVM : ViewModelBase
+    public class AvailableCarsVM : ViewModelBase
     {
         private readonly TestModel _testModel;
         public int CarId 

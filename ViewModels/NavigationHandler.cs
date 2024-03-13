@@ -8,7 +8,7 @@ using CHMS.Resources;
 
 namespace CHMS.ViewModels
 {
-    class NavigationHandler: ViewModelBase
+    public class NavigationHandler: ViewModelBase
     {
         private object _currentView;
         public object CurrentView
@@ -22,10 +22,10 @@ namespace CHMS.ViewModels
         public ICommand RentInfoCommand { get; set; }
         public ICommand RentCarCommand { get; set; }
 
-        private void Home(object view) => CurrentView = new HomeViewModel();
-        private void AvailableCars(object view) => CurrentView = new AvailableCarsVM();
-        private void RentInfo(object view) => CurrentView = new RentedCarsVM();
-        private void RentCar(object view) => CurrentView = new RentCarVM();
+        private void Home(object obj) => CurrentView = new HomeViewModel();
+        private void AvailableCars(object obj) => CurrentView = new AvailableCarsVM();
+        private void RentInfo(object obj) => CurrentView = new RentedCarsVM();
+        private void RentCar(object obj) => CurrentView = new RentCarVM();
 
         public NavigationHandler() { 
             HomeCommand = new RelayCommand(Home);

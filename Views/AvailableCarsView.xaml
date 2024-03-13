@@ -13,16 +13,181 @@
         <vm:AvailableCarsVM/>
     </UserControl.DataContext>
 
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="availableCarsViewSrc"/>
+    </UserControl.Resources>
+
     <Grid>
-        <Border Background="#272B2F">
-            <TextBlock Text="{Binding CarId}"
-           Height="30"
+        <Border Background="#272B2F"/>
+        
+        <TextBlock Text="Car make:"
+                   Foreground="#189AB4"
+                   FontWeight="Bold"
+                   FontSize="17"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Width="80"
+                   Margin="0,0,0,0"/>
+        
+        <TextBox Height="20" Width="100"
+                 VerticalAlignment="Top"
+                 Background="Transparent"
+                 BorderThickness="0,0,0,1"
+                 Margin="-350,0,0,0"
+                 CaretBrush="#189AB4"
+                 Foreground="#189AB4"
+                 FontSize="17"
+                 x:Name="CarMakeTxt"
+                 MaxLength="40"/>
+
+        <TextBlock Text="Car model:"
            Foreground="#189AB4"
            FontWeight="Bold"
-           FontSize="23"
+           FontSize="17"
            VerticalAlignment="Top"
-           HorizontalAlignment="Center"
-           Margin="0,20,0,0"/>
-        </Border>
+           HorizontalAlignment="Left"
+           Width="85"
+           Margin="0,40,0,0"/>
+
+        <TextBox Height="20" Width="100"
+                    VerticalAlignment="Top"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,1"
+                    Margin="-350,40,0,0"
+                    CaretBrush="#189AB4"
+                    Foreground="#189AB4"
+                    FontSize="17"
+                    x:Name="CarModelTxt"
+                 MaxLength="40"/>
+
+        <TextBlock Text="Car type:"
+           Foreground="#189AB4"
+           FontWeight="Bold"
+           FontSize="17"
+           VerticalAlignment="Top"
+           HorizontalAlignment="Left"
+           Width="80"
+           Margin="0,80,0,0"/>
+
+        <TextBox Height="20" Width="100"
+                    VerticalAlignment="Top"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,1"
+                    Margin="-350,80,0,0"
+                    CaretBrush="#189AB4"
+                    Foreground="#189AB4"
+                    FontSize="17"
+                    x:Name="CarTypeTxt"
+                 MaxLength="40"/>
+
+        <TextBlock Text="Car color:"
+           Foreground="#189AB4"
+           FontWeight="Bold"
+           FontSize="17"
+           VerticalAlignment="Top"
+           HorizontalAlignment="Left"
+           Width="80"
+           Margin="0,120,0,0"/>
+
+        <TextBox Height="20" Width="100"
+                    VerticalAlignment="Top"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,1"
+                    Margin="-350,120,0,0"
+                    CaretBrush="#189AB4"
+                    Foreground="#189AB4"
+                    FontSize="17"
+                    x:Name="CarColorTxt"
+                 MaxLength="40"/>
+
+        <TextBlock Text="Car gearbox type:"
+           Foreground="#189AB4"
+           FontWeight="Bold"
+           FontSize="17"
+           VerticalAlignment="Top"
+           HorizontalAlignment="Left"
+           Width="150"
+           Margin="0,160,0,0"/>
+
+        <TextBox Height="20" Width="100"
+                    VerticalAlignment="Top"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,1"
+                    Margin="-220,160,0,0"
+                    CaretBrush="#189AB4"
+                    Foreground="#189AB4"
+                    FontSize="17"
+                    x:Name="CarGearboxTxt"
+                 MaxLength="40"/>
+
+        <TextBlock Text="Cost:"
+           Foreground="#189AB4"
+           FontWeight="Bold"
+           FontSize="17"
+           VerticalAlignment="Top"
+           HorizontalAlignment="Left"
+           Width="80"
+           Margin="0,200,0,0"/>
+
+        <TextBox Height="20" Width="100"
+                    VerticalAlignment="Top"
+                    Background="Transparent"
+                    BorderThickness="0,0,0,1"
+                    Margin="-430,200,0,0"
+                    CaretBrush="#189AB4"
+                    Foreground="#189AB4"
+                    FontSize="17"
+                    x:Name="CarCostTxt"
+                 MaxLength="40"/>
+
+        <Button Width="50" Height="30" Content="Add"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0,200,10,0"
+                Click="AddCar"/>
+
+        <Button Width="50" Height="30" Content="Save"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0,200,70,0"
+                Click="Save"/>
+
+        <DataGrid x:Name="CarsDataGrid" 
+                      AutoGenerateColumns="False"
+                      EnableRowVirtualization="True"
+                      ItemsSource="{Binding Source={StaticResource availableCarsViewSrc}}"
+                      Background="#272B2F"
+                      Foreground="#189AB4"
+                      Height="300"
+                      VerticalAlignment="Bottom">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding CarMake}"
+                                        Header="Car make" Width="SizeToHeader"
+                                        IsReadOnly="True"/>
+
+                <DataGridTextColumn Binding="{Binding Car_Model}"
+                                        Header="Car model" Width="SizeToHeader"
+                                        IsReadOnly="True"/>
+
+                <DataGridTextColumn Binding="{Binding CarType}"
+                                        Header="Car type" Width="SizeToHeader"
+                                        IsReadOnly="True"/>
+
+                <DataGridTextColumn Binding="{Binding CarColor}"
+                                        Header="Car color" Width="SizeToHeader"
+                                        IsReadOnly="True"/>
+
+                <DataGridTextColumn Binding="{Binding CarGearboxType}"
+                                        Header="Car gearbox type" Width="SizeToHeader"
+                                        IsReadOnly="True"/>
+
+                <DataGridTextColumn Binding="{Binding Cost}"
+                                        Header="Cost per day" Width="SizeToHeader"
+                                        IsReadOnly="True"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </UserControl>

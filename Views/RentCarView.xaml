@@ -6,22 +6,136 @@
              xmlns:local="clr-namespace:CHMS.Views"
              xmlns:vm="clr-namespace:CHMS.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="622">
+             d:DesignHeight="600" d:DesignWidth="622"
+             Style="{StaticResource Page_Style}">
 
     <UserControl.DataContext>
         <vm:RentCarVM/>
     </UserControl.DataContext>
-    
+
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="rentedCarsSrc"/>
+    </UserControl.Resources>
+
     <Grid>
-        <Border Background="#272B2F">
-            <TextBlock Text="RENTCAR"
-   Height="30"
-   Foreground="#189AB4"
-   FontWeight="Bold"
-   FontSize="23"
-   VerticalAlignment="Top"
-   HorizontalAlignment="Center"
-   Margin="0,20,0,0"/>
-        </Border>
+        <Border Background="#272B2F"/>
+
+        <TextBlock Text="Name:"
+           Foreground="#189AB4"
+           FontWeight="Bold"
+           FontSize="17"
+           VerticalAlignment="Top"
+           HorizontalAlignment="Left"
+           Width="80"
+           Margin="0,0,0,0"/>
+
+        <TextBox Height="20" Width="100"
+         VerticalAlignment="Top"
+         Background="Transparent"
+         BorderThickness="0,0,0,1"
+         Margin="-400,0,0,0"
+         CaretBrush="#189AB4"
+         Foreground="#189AB4"
+         FontSize="17"
+         x:Name="CarMakeTxt"
+         MaxLength="40"/>
+
+        <TextBlock Text="Surname:"
+                    Foreground="#189AB4"
+                    FontWeight="Bold"
+                    FontSize="17"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Width="85"
+                    Margin="0,40,0,0"/>
+
+        <TextBox Height="20" Width="100"
+            VerticalAlignment="Top"
+            Background="Transparent"
+            BorderThickness="0,0,0,1"
+            Margin="-350,40,0,0"
+            CaretBrush="#189AB4"
+            Foreground="#189AB4"
+            FontSize="17"
+            x:Name="CarModelTxt"
+                 MaxLength="40"/>
+
+        <TextBlock Text="Phone number:"
+                    Foreground="#189AB4"
+                    FontWeight="Bold"
+                    FontSize="17"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Width="130"
+                    Margin="0,80,0,0"/>
+
+        <TextBox Height="20" Width="100"
+            VerticalAlignment="Top"
+            Background="Transparent"
+            BorderThickness="0,0,0,1"
+            Margin="-250,80,0,0"
+            CaretBrush="#189AB4"
+            Foreground="#189AB4"
+            FontSize="17"
+            x:Name="CarTypeTxt"
+                 MaxLength="40"/>
+
+        <TextBlock Text="E-mail:"
+                    Foreground="#189AB4"
+                    FontWeight="Bold"
+                    FontSize="17"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Width="80"
+                    Margin="0,120,0,0"/>
+
+        <TextBox Height="20" Width="100"
+            VerticalAlignment="Top"
+            Background="Transparent"
+            BorderThickness="0,0,0,1"
+            Margin="-400,120,0,0"
+            CaretBrush="#189AB4"
+            Foreground="#189AB4"
+            FontSize="17"
+            x:Name="CarColorTxt"
+                 MaxLength="40"/>
+
+        <TextBlock Text="Loan period:"
+                    Foreground="#189AB4"
+                    FontWeight="Bold"
+                    FontSize="17"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Width="150"
+                    Margin="0,160,0,0"/>
+
+        <TextBox Height="20" Width="100"
+            VerticalAlignment="Top"
+            Background="Transparent"
+            BorderThickness="0,0,0,1"
+            Margin="-300,160,0,0"
+            CaretBrush="#189AB4"
+            Foreground="#189AB4"
+            FontSize="17"
+            x:Name="CarGearboxTxt"
+                 MaxLength="40"/>
+
+        <TextBlock Text="Total cost:"
+                    Foreground="#189AB4"
+                    FontWeight="Bold"
+                    FontSize="17"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Width="90"
+                    Margin="0,200,0,0"/>
+
+        <TextBlock Text="123"
+            Foreground="#189AB4"
+            FontWeight="Bold"
+            FontSize="17"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="90"
+            Margin="90,200,0,0"/>
     </Grid>
 </UserControl>

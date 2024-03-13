@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:CHMS.Views"
              xmlns:vm="clr-namespace:CHMS.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="622">
+             d:DesignHeight="600" d:DesignWidth="622"
+             Style="{StaticResource Page_Style}">
 
     <UserControl.DataContext>
         <vm:RentedCarsVM/>
@@ -16,13 +17,13 @@
     <Grid>
         <Border Background="#272B2F">
             <TextBlock Text="RENTINFO"
-   Height="30"
-   Foreground="#189AB4"
-   FontWeight="Bold"
-   FontSize="23"
-   VerticalAlignment="Top"
-   HorizontalAlignment="Center"
-   Margin="0,20,0,0"/>
+                        Height="30"
+                        Foreground="#189AB4"
+                        FontWeight="Bold"
+                        FontSize="23"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Center"
+                        Margin="0,20,0,0"/>
         </Border>
     </Grid>
 </UserControl>

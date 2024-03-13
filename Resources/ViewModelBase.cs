@@ -8,13 +8,12 @@ using System.Threading.Tasks;
 
 namespace CHMS.Resources
 {
-    class ViewModelBase : INotifyPropertyChanged
+    public abstract class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged([CallerMemberName] string propertName = null)
+        public void OnPropertyChanged([CallerMemberName] string propName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
     }
 }

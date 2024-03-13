@@ -7,7 +7,7 @@ using CHMS.Resources;
 
 namespace CHMS.ViewModels
 {
-    class RentCarVM : ViewModelBase
+    public class RentCarVM : ViewModelBase
     {
     }
 }
