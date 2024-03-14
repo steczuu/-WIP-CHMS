@@ -14,7 +14,7 @@ namespace CHMS.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source = cars.db");
+            optionsBuilder.UseSqlite("Data Source = _cars.db");
             optionsBuilder.UseLazyLoadingProxies(); 
         }
     }

@@ -25,6 +25,7 @@ namespace CHMS.Views
     {
         private readonly CarModelContext carModelContext = new CarModelContext();
         private CollectionViewSource availableCarsViewSrc;
+        public float _cost;
 
         public AvailableCarsView()
         {
@@ -35,7 +36,7 @@ namespace CHMS.Views
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            carModelContext.Database.EnsureCreated();   
+            carModelContext.Database.EnsureCreated();
             carModelContext.Cars.Load();
             
 
@@ -44,14 +45,14 @@ namespace CHMS.Views
 
         private void AddCar(object sender, RoutedEventArgs e)
         {
-            float _cost = (float)Convert.ToDouble(CarCostTxt.Text);
+            _cost = (float)Convert.ToDouble(CarCostTxt.Text);
 
             var car = new CarModel { CarColor = CarColorTxt.Text, 
                                      CarGearboxType = CarGearboxTxt.Text,
                                      CarMake = CarMakeTxt.Text,
                                      CarType = CarTypeTxt.Text,
                                      Car_Model = CarModelTxt.Text,
-                                     Cost = _cost};
+                                     Cost = _cost   };
 
             carModelContext.Cars.Add(car);
             carModelContext.SaveChanges();  

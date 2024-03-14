@@ -20,6 +20,10 @@
     <Grid>
         <Border Background="#272B2F"/>
         
+        <Line X1="311" Y1="0"
+              X2="311" Y2="300"
+              Stroke="White"/>
+        
         <TextBlock Text="Car make:"
                    Foreground="#189AB4"
                    FontWeight="Bold"
@@ -140,16 +144,141 @@
                     x:Name="CarCostTxt"
                  MaxLength="40"/>
 
+        <TextBlock Text="Name:"
+   Foreground="#189AB4"
+   FontWeight="Bold"
+   FontSize="17"
+   VerticalAlignment="Top"
+   HorizontalAlignment="Right"
+   Width="80"
+   Margin="0,0,150,0"/>
+
+<TextBox Height="20" Width="100"
+ VerticalAlignment="Top"
+         HorizontalAlignment="Right"
+ Background="Transparent"
+ BorderThickness="0,0,0,1"
+ Margin="-400,0,50,0"
+ CaretBrush="#189AB4"
+ Foreground="#189AB4"
+ FontSize="17"
+ x:Name="NameTxt"
+ MaxLength="40"/>
+
+<TextBlock Text="Surname:"
+            Foreground="#189AB4"
+            FontWeight="Bold"
+            FontSize="17"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            Width="85"
+            Margin="0,40,150,0"/>
+
+<TextBox Height="20" Width="100"
+    VerticalAlignment="Top"
+    Background="Transparent"
+    BorderThickness="0,0,0,1"
+    Margin="-350,40,50,0"
+    CaretBrush="#189AB4"
+    Foreground="#189AB4"
+    FontSize="17"
+    x:Name="SurnameTxt"
+         HorizontalAlignment="Right"
+         MaxLength="40"/>
+
+<TextBlock Text="Phone number:"
+            Foreground="#189AB4"
+            FontWeight="Bold"
+            FontSize="17"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            Width="130"
+            Margin="0,80,150,0"/>
+
+<TextBox Height="20" Width="100"
+    VerticalAlignment="Top"
+         HorizontalAlignment="Right"
+    Background="Transparent"
+    BorderThickness="0,0,0,1"
+    Margin="-250,80,50,0"
+    CaretBrush="#189AB4"
+    Foreground="#189AB4"
+    FontSize="17"
+    x:Name="PhoneTxt"
+         MaxLength="40"/>
+
+<TextBlock Text="E-mail:"
+            Foreground="#189AB4"
+            FontWeight="Bold"
+            FontSize="17"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            Width="80"
+            Margin="0,120,150,0"/>
+
+<TextBox Height="20" Width="100"
+    VerticalAlignment="Top"
+         HorizontalAlignment="Right"
+    Background="Transparent"
+    BorderThickness="0,0,0,1"
+    Margin="-400,120,50,0"
+    CaretBrush="#189AB4"
+    Foreground="#189AB4"
+    FontSize="17"
+    x:Name="EmailTxt"
+         MaxLength="40"/>
+
+<TextBlock Text="Loan period:"
+            Foreground="#189AB4"
+            FontWeight="Bold"
+            FontSize="17"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            Width="100"
+            Margin="0,160,160,0"/>
+
+<TextBox Height="20" Width="100"
+    VerticalAlignment="Top"
+         HorizontalAlignment="Right"
+    Background="Transparent"
+    BorderThickness="0,0,0,1"
+    Margin="-300,160,50,0"
+    CaretBrush="#189AB4"
+    Foreground="#189AB4"
+    FontSize="17"
+    x:Name="LoanPeriodTxt"
+         MaxLength="40"/>
+
+<TextBlock Text="Total cost:"
+            Foreground="#189AB4"
+            FontWeight="Bold"
+            FontSize="17"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            Width="90"
+            Margin="0,200,150,0"/>
+
+<TextBlock Text=""
+    Foreground="#189AB4"
+    FontWeight="Bold"
+    FontSize="17"
+    VerticalAlignment="Top"
+    HorizontalAlignment="Left"
+    Width="90"
+    Margin="90,200,0,0"
+    x:Name="TotalCostTxt"/>
+
+
         <Button Width="50" Height="30" Content="Add"
-                HorizontalAlignment="Right"
+                HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Margin="0,200,10,0"
+                Margin="0,250,10,0"
                 Click="AddCar"/>
 
         <Button Width="50" Height="30" Content="Save"
-                HorizontalAlignment="Right"
+                HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Margin="0,200,70,0"
+                Margin="60,250,70,0"
                 Click="Save"/>
 
         <DataGrid x:Name="CarsDataGrid" 
@@ -158,10 +287,14 @@
                       ItemsSource="{Binding Source={StaticResource availableCarsViewSrc}}"
                       Background="#272B2F"
                       Foreground="#189AB4"
-                      Height="300"
+                      Height="250"
                       VerticalAlignment="Bottom">
 
             <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding CarId}"
+                                        Header="Car ID" Width="SizeToHeader"
+                                        IsReadOnly="True"/>
+                
                 <DataGridTextColumn Binding="{Binding CarMake}"
                                         Header="Car make" Width="SizeToHeader"
                                         IsReadOnly="True"/>

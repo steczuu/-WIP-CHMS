@@ -12,18 +12,67 @@
     <UserControl.DataContext>
         <vm:RentedCarsVM/>
     </UserControl.DataContext>
+
+    <UserControl.Resources>
+        
+    </UserControl.Resources>
     
     
     <Grid>
-        <Border Background="#272B2F">
-            <TextBlock Text="RENTINFO"
-                        Height="30"
-                        Foreground="#189AB4"
-                        FontWeight="Bold"
-                        FontSize="23"
-                        VerticalAlignment="Top"
-                        HorizontalAlignment="Center"
-                        Margin="0,20,0,0"/>
-        </Border>
+        <Border Background="#272B2F"/>
+
+        <DataGrid x:Name="CarsDataGrid" 
+              AutoGenerateColumns="False"
+              EnableRowVirtualization="True"
+              
+              Background="#272B2F"
+              Foreground="#189AB4"
+              Height="600"
+              VerticalAlignment="Top">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding CarMake}"
+                                Header="Car make" Width="SizeToHeader"
+                                IsReadOnly="True"/>
+
+                <DataGridTextColumn Binding="{Binding Car_Model}"
+                                Header="Car model" Width="SizeToHeader"
+                                IsReadOnly="True"/>
+
+                <DataGridTextColumn Binding="{Binding CarType}"
+                                Header="Car type" Width="SizeToHeader"
+                                IsReadOnly="True"/>
+
+                <DataGridTextColumn Binding="{Binding CarColor}"
+                                Header="Car color" Width="SizeToHeader"
+                                IsReadOnly="True"/>
+
+                <DataGridTextColumn Binding="{Binding CarGearboxType}"
+                                Header="Car gearbox type" Width="SizeToHeader"
+                                IsReadOnly="True"/>
+
+                <DataGridTextColumn Binding="{Binding Cost}"
+                                Header="Cost per day" Width="SizeToHeader"
+                                IsReadOnly="True"/>
+
+                <DataGridTextColumn Binding="{Binding Cost}"
+                                    Header="Name" Width="SizeToHeader"
+                                    IsReadOnly="True"/>
+
+                <DataGridTextColumn Binding="{Binding Cost}"
+                                    Header="Surname" Width="SizeToHeader"
+                                    IsReadOnly="True"/>
+
+                <DataGridTextColumn Binding="{Binding Cost}"
+                                    Header="Loan period" Width="SizeToHeader"
+                                    IsReadOnly="True"/>
+
+                <DataGridTextColumn Binding="{Binding Cost}"
+                                    Header="Date" Width="SizeToHeader"
+                                    IsReadOnly="True"/>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>
