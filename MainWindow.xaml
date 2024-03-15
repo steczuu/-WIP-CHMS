@@ -124,19 +124,6 @@
                             Margin="0,20,0,0">
                     </RadioButton>
 
-                    <RadioButton x:Name="RentCarBtn"
-                                 Command="{Binding RentCarCommand}"
-                                 Style="{StaticResource BtnStyle}"
-                            Grid.Column="2"
-                            Background="Transparent"
-                            BorderThickness="0"
-                            Content="Rent a Car"
-                            Foreground="#189AB4"
-                            FontSize="25"
-                            Cursor="Hand"
-                            Margin="0,20,0,0">
-                    </RadioButton>
-                    
                 </StackPanel>
             </Grid>
             

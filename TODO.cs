@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CHMS.Resources;
 
-namespace CHMS.ViewModels
+namespace CHMS
 {
-    public class RentCarVM : ViewModelBase
+    internal class TODO
     {
+        /*
+            viewmodels
+            finish addClient feature
+        */
     }
 }

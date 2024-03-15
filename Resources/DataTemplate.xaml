@@ -12,10 +12,6 @@
         <view:AvailableCarsView />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:RentCarVM}">
-        <view:RentCarView />
-    </DataTemplate>
-
     <DataTemplate DataType="{x:Type vm:RentedCarsVM}">
         <view:RentedCarsView />
     </DataTemplate>

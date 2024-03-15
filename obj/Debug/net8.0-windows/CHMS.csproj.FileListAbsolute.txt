@@ -22,11 +22,9 @@ C:\Users\stecz\source\repos\LMS\LMS\obj\Debug\net8.0-windows\Styles\ButtonStyle.
 C:\Users\stecz\source\repos\LMS\LMS\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\stecz\source\repos\LMS\LMS\obj\Debug\net8.0-windows\Views\AvailableCarsView.g.cs
 C:\Users\stecz\source\repos\LMS\LMS\obj\Debug\net8.0-windows\Views\HomeView.g.cs
-C:\Users\stecz\source\repos\LMS\LMS\obj\Debug\net8.0-windows\Views\RentCarView.g.cs
 C:\Users\stecz\source\repos\LMS\LMS\obj\Debug\net8.0-windows\Views\RentedCarsView.g.cs
 C:\Users\stecz\source\repos\LMS\LMS\obj\Debug\net8.0-windows\Views\AvailableCarsView.baml
 C:\Users\stecz\source\repos\LMS\LMS\obj\Debug\net8.0-windows\Views\HomeView.baml
-C:\Users\stecz\source\repos\LMS\LMS\obj\Debug\net8.0-windows\Views\RentCarView.baml
 C:\Users\stecz\source\repos\LMS\LMS\obj\Debug\net8.0-windows\Views\RentedCarsView.baml
 C:\Users\stecz\source\repos\LMS\LMS\bin\Debug\net8.0-windows\Castle.Core.dll
 C:\Users\stecz\source\repos\LMS\LMS\bin\Debug\net8.0-windows\Microsoft.Data.Sqlite.dll

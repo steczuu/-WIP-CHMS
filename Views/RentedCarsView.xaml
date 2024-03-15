@@ -21,7 +21,7 @@
     <Grid>
         <Border Background="#272B2F"/>
 
-        <DataGrid x:Name="CarsDataGrid" 
+        <DataGrid x:Name="RentedCarsDataGrid" 
               AutoGenerateColumns="False"
               EnableRowVirtualization="True"
               
@@ -55,20 +55,16 @@
                                 Header="Cost per day" Width="SizeToHeader"
                                 IsReadOnly="True"/>
 
-                <DataGridTextColumn Binding="{Binding Cost}"
+                <DataGridTextColumn Binding="{Binding Name}"
                                     Header="Name" Width="SizeToHeader"
                                     IsReadOnly="True"/>
 
-                <DataGridTextColumn Binding="{Binding Cost}"
+                <DataGridTextColumn Binding="{Binding Surname}"
                                     Header="Surname" Width="SizeToHeader"
                                     IsReadOnly="True"/>
 
-                <DataGridTextColumn Binding="{Binding Cost}"
+                <DataGridTextColumn Binding="{Binding LoanPeriod}"
                                     Header="Loan period" Width="SizeToHeader"
-                                    IsReadOnly="True"/>
-
-                <DataGridTextColumn Binding="{Binding Cost}"
-                                    Header="Date" Width="SizeToHeader"
                                     IsReadOnly="True"/>
 
 

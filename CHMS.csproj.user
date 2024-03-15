@@ -13,9 +13,6 @@
     <Compile Update="Views\HomeView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\RentCarView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\RentedCarsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,9 +34,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\HomeView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\RentCarView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\RentedCarsView.xaml">

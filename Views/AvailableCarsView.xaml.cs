@@ -24,6 +24,7 @@ namespace CHMS.Views
     public partial class AvailableCarsView : UserControl
     {
         private readonly CarModelContext carModelContext = new CarModelContext();
+        private readonly RentedCarModelContext rentedCarModelContext = new RentedCarModelContext();
         private CollectionViewSource availableCarsViewSrc;
         public float _cost;
 
@@ -47,12 +48,15 @@ namespace CHMS.Views
         {
             _cost = (float)Convert.ToDouble(CarCostTxt.Text);
 
-            var car = new CarModel { CarColor = CarColorTxt.Text, 
-                                     CarGearboxType = CarGearboxTxt.Text,
-                                     CarMake = CarMakeTxt.Text,
-                                     CarType = CarTypeTxt.Text,
-                                     Car_Model = CarModelTxt.Text,
-                                     Cost = _cost   };
+            var car = new CarModel 
+            { 
+                CarColor = CarColorTxt.Text, 
+                CarGearboxType = CarGearboxTxt.Text,
+                CarMake = CarMakeTxt.Text,
+                CarType = CarTypeTxt.Text,
+                Car_Model = CarModelTxt.Text,
+                Cost = _cost   
+            };
 
             carModelContext.Cars.Add(car);
             carModelContext.SaveChanges();  
@@ -71,6 +75,34 @@ namespace CHMS.Views
         {
             carModelContext.SaveChanges();
             CarsDataGrid.Items.Refresh();
+        }
+
+        private void CarsDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (CarsDataGrid.SelectedItem != null)
+            {
+                CarModel selectedCar = (CarModel)CarsDataGrid.SelectedItem;
+
+                RentedCarModel rentedCar = new RentedCarModel
+                {
+                    CarMake = selectedCar.CarMake,
+                    Car_Model = selectedCar.Car_Model,
+                    CarType = selectedCar.CarType,
+                    CarColor = selectedCar.CarColor,
+                    CarGearboxType = selectedCar.CarGearboxType,
+                    Cost = selectedCar.Cost
+                };
+
+                rentedCar.Name = NameTxt.Text;
+                rentedCar.Surname = SurnameTxt.Text;
+                rentedCar.LoanPeriod = int.Parse(LoanPeriodTxt.Text);
+
+                RentedCarsDataGrid.Items.Refresh();
+
+                NameTxt.Clear();
+                SurnameTxt.Clear();
+                LoanPeriodTxt.Clear();
+            }
         }
     }
 }
