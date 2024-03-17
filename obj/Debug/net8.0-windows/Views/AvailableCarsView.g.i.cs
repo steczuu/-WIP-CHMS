@@ -141,7 +141,7 @@ namespace CHMS.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CHMS;V1.0.0.0;component/views/availablecarsview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CHMS;component/views/availablecarsview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\AvailableCarsView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

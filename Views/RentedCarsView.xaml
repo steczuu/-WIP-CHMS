@@ -14,9 +14,8 @@
     </UserControl.DataContext>
 
     <UserControl.Resources>
-        
+        <CollectionViewSource x:Key="rentedCarsSrc"/> 
     </UserControl.Resources>
-    
     
     <Grid>
         <Border Background="#272B2F"/>
@@ -24,34 +23,34 @@
         <DataGrid x:Name="RentedCarsDataGrid" 
               AutoGenerateColumns="False"
               EnableRowVirtualization="True"
-              
+              ItemsSource="{Binding Source={StaticResource rentedCarsSrc}}"
               Background="#272B2F"
               Foreground="#189AB4"
               Height="600"
               VerticalAlignment="Top">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding CarMake}"
+                <DataGridTextColumn Binding="{Binding RentedCarMake}"
                                 Header="Car make" Width="SizeToHeader"
                                 IsReadOnly="True"/>
 
-                <DataGridTextColumn Binding="{Binding Car_Model}"
+                <DataGridTextColumn Binding="{Binding RentedCar_Model}"
                                 Header="Car model" Width="SizeToHeader"
                                 IsReadOnly="True"/>
 
-                <DataGridTextColumn Binding="{Binding CarType}"
+                <DataGridTextColumn Binding="{Binding RentedCarType}"
                                 Header="Car type" Width="SizeToHeader"
                                 IsReadOnly="True"/>
 
-                <DataGridTextColumn Binding="{Binding CarColor}"
+                <DataGridTextColumn Binding="{Binding RentedCarColor}"
                                 Header="Car color" Width="SizeToHeader"
                                 IsReadOnly="True"/>
 
-                <DataGridTextColumn Binding="{Binding CarGearboxType}"
+                <DataGridTextColumn Binding="{Binding RentedCarGearboxType}"
                                 Header="Car gearbox type" Width="SizeToHeader"
                                 IsReadOnly="True"/>
 
-                <DataGridTextColumn Binding="{Binding Cost}"
+                <DataGridTextColumn Binding="{Binding RentedCost}"
                                 Header="Cost per day" Width="SizeToHeader"
                                 IsReadOnly="True"/>
 

@@ -20,8 +20,6 @@
         <vm:NavigationHandler />
     </Window.DataContext>
 
-    
-
     <Grid>
         <Border Background="#212529"/>
         

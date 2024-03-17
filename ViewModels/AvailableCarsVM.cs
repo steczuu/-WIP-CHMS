@@ -10,17 +10,6 @@ namespace CHMS.ViewModels
 {
     public class AvailableCarsVM : ViewModelBase
     {
-        private readonly TestModel _testModel;
-        public int CarId 
-        {
-            get { return _testModel.Id; }
-            set { _testModel.Id = value; OnPropertyChanged();} 
-        }
-
-        public AvailableCarsVM()
-        {
-            _testModel = new TestModel();
-            CarId = 16486;
-        }
+        
     }
 }

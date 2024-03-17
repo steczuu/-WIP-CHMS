@@ -15,6 +15,9 @@ using System.Windows.Shapes;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using CHMS.Models;
+using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
+using System.Data;
 
 namespace CHMS.Views
 {
@@ -23,6 +26,7 @@ namespace CHMS.Views
     /// </summary>
     public partial class AvailableCarsView : UserControl
     {
+        private RentedCarsView _view = new RentedCarsView();
         private readonly CarModelContext carModelContext = new CarModelContext();
         private readonly RentedCarModelContext rentedCarModelContext = new RentedCarModelContext();
         private CollectionViewSource availableCarsViewSrc;
@@ -79,25 +83,30 @@ namespace CHMS.Views
 
         private void CarsDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            
             if (CarsDataGrid.SelectedItem != null)
             {
-                CarModel selectedCar = (CarModel)CarsDataGrid.SelectedItem;
+                
+               CarModel selectedCar = (CarModel)CarsDataGrid.SelectedItem;
+               
 
                 RentedCarModel rentedCar = new RentedCarModel
                 {
-                    CarMake = selectedCar.CarMake,
-                    Car_Model = selectedCar.Car_Model,
-                    CarType = selectedCar.CarType,
-                    CarColor = selectedCar.CarColor,
-                    CarGearboxType = selectedCar.CarGearboxType,
-                    Cost = selectedCar.Cost
+                    RentedCarMake = selectedCar.CarMake,
+                    RentedCar_Model = selectedCar.Car_Model,
+                    RentedCarType = selectedCar.CarType,
+                    RentedCarColor = selectedCar.CarColor,
+                    RentedCarGearboxType = selectedCar.CarGearboxType,
+                    RentedCost = selectedCar.Cost
                 };
+
 
                 rentedCar.Name = NameTxt.Text;
                 rentedCar.Surname = SurnameTxt.Text;
                 rentedCar.LoanPeriod = int.Parse(LoanPeriodTxt.Text);
 
-                RentedCarsDataGrid.Items.Refresh();
+                _view.LoadData(rentedCar);
+                _view.RentedCarsDataGrid.Items.Refresh();
 
                 NameTxt.Clear();
                 SurnameTxt.Clear();

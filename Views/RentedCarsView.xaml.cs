@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CHMS.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,35 @@ namespace CHMS.Views
     /// </summary>
     public partial class RentedCarsView : UserControl
     {
+        private readonly RentedCarModelContext rentedCarModelContext = new RentedCarModelContext();
+        private CollectionViewSource rentedCarsSrc;
         public RentedCarsView()
         {
             InitializeComponent();
+            this.Loaded += new RoutedEventHandler(Window_Loaded);
+            rentedCarsSrc = (CollectionViewSource)FindResource(nameof(rentedCarsSrc));
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            rentedCarModelContext.Database.EnsureCreated();
+            rentedCarModelContext.RentedCars.Load();
+            RentedCarsDataGrid.Items.Refresh();
+
+            rentedCarsSrc.Source = rentedCarModelContext.RentedCars.Local.ToObservableCollection();
+        }
+
+        public void LoadData(RentedCarModel car)
+        {
+            rentedCarModelContext.Add(car);
+            rentedCarModelContext.SaveChanges();
+            RentedCarsDataGrid.Items.Refresh();
+        }
+
+        private void RefreshBtn_Click(object sender, RoutedEventArgs e)
+        {
+            RentedCarsDataGrid.Items.Refresh();
+            rentedCarModelContext.SaveChanges();
         }
     }
 }

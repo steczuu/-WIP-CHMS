@@ -10,17 +10,6 @@ namespace CHMS.ViewModels
 {
     public class HomeViewModel : ViewModelBase
     {
-        private readonly TestModel _testModel;
-        public string Example
-        {
-            get { return _testModel.Name; }
-            set { _testModel.Name = value; OnPropertyChanged(); }
-        }
-
-        public HomeViewModel()
-        {
-            _testModel = new TestModel();
-            Example = "HOMEEE";
-        }
+        
     }
 }

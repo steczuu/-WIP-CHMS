@@ -9,18 +9,18 @@ using System.Windows.Controls;
 
 namespace CHMS.Models
 {
-    [PrimaryKey(nameof(CarId))]
+    [PrimaryKey(nameof(RentedCarId))]
     public class RentedCarModel
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CarId { get; set; }
+        public int RentedCarId { get; set; }
 
-        public string CarMake { get; set; }
-        public string Car_Model { get; set; }
-        public string CarType { get; set; }
-        public string CarColor { get; set; }
-        public string CarGearboxType { get; set; }
-        public float Cost { get; set; }
+        public string RentedCarMake { get; set; }
+        public string RentedCar_Model { get; set; }
+        public string RentedCarType { get; set; }
+        public string RentedCarColor { get; set; }
+        public string RentedCarGearboxType { get; set; }
+        public float RentedCost { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public int LoanPeriod { get; set; }
