@@ -21,6 +21,7 @@ namespace CHMS.Models
         public string RentedCarColor { get; set; }
         public string RentedCarGearboxType { get; set; }
         public float RentedCost { get; set; }
+        public DateTime RentedDate { get; set; }    
         public string Name { get; set; }
         public string Surname { get; set; }
         public int LoanPeriod { get; set; }

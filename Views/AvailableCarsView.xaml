@@ -205,27 +205,8 @@
                  Foreground="#189AB4"
                  FontSize="17"
                  x:Name="LoanPeriodTxt"
-                 MaxLength="40"/>
-
-        <TextBlock Text="Total cost:"
-                   Foreground="#189AB4"
-                   FontWeight="Bold"
-                   FontSize="17"
-                   VerticalAlignment="Top"
-                   HorizontalAlignment="Right"
-                   Width="90"
-                   Margin="0,120,150,0"/>
-
-        <TextBlock Text=""
-                   Foreground="#189AB4"
-                   FontWeight="Bold"
-                   FontSize="17"
-                   VerticalAlignment="Top"
-                   HorizontalAlignment="Right"
-                   Width="90"
-                   Margin="0,120,65,0"
-                   x:Name="TotalCostTxt"/>
-
+                 MaxLength="40"
+                 TextChanged="LoanPeriodTxt_TextChanged"/>
 
         <Button Width="50" Height="30" Content="Add"
                 HorizontalAlignment="Left"

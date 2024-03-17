@@ -18,6 +18,7 @@ using CHMS.Models;
 using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
 using System.Data;
+using System.Runtime.ConstrainedExecution;
 
 namespace CHMS.Views
 {
@@ -26,9 +27,7 @@ namespace CHMS.Views
     /// </summary>
     public partial class AvailableCarsView : UserControl
     {
-        private RentedCarsView _view = new RentedCarsView();
         private readonly CarModelContext carModelContext = new CarModelContext();
-        private readonly RentedCarModelContext rentedCarModelContext = new RentedCarModelContext();
         private CollectionViewSource availableCarsViewSrc;
         public float _cost;
 
@@ -48,9 +47,24 @@ namespace CHMS.Views
             availableCarsViewSrc.Source = carModelContext.Cars.Local.ToObservableCollection();
         }
 
+        public void LoadData(CarModel carModel)
+        {
+            carModelContext.Add(carModel);
+            carModelContext.SaveChanges();
+            CarsDataGrid.Items.Refresh();
+        }
+
         private void AddCar(object sender, RoutedEventArgs e)
         {
-            _cost = (float)Convert.ToDouble(CarCostTxt.Text);
+            try
+            {
+                _cost = (float)Convert.ToDouble(CarCostTxt.Text);
+            }
+
+            catch
+            {
+                MessageBox.Show("Invalid input or white space.");
+            }
 
             var car = new CarModel 
             { 
@@ -83,12 +97,13 @@ namespace CHMS.Views
 
         private void CarsDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            bool isInvalid = false;
             
-            if (CarsDataGrid.SelectedItem != null)
+            if (CarsDataGrid.SelectedItem != null && NameTxt.Text != null && SurnameTxt.Text != null && LoanPeriodTxt.Text != null)
             {
                 
                CarModel selectedCar = (CarModel)CarsDataGrid.SelectedItem;
-               
+
 
                 RentedCarModel rentedCar = new RentedCarModel
                 {
@@ -97,21 +112,48 @@ namespace CHMS.Views
                     RentedCarType = selectedCar.CarType,
                     RentedCarColor = selectedCar.CarColor,
                     RentedCarGearboxType = selectedCar.CarGearboxType,
-                    RentedCost = selectedCar.Cost
+                    RentedCost = selectedCar.Cost,
+                    RentedDate = DateTime.Now
                 };
-
 
                 rentedCar.Name = NameTxt.Text;
                 rentedCar.Surname = SurnameTxt.Text;
-                rentedCar.LoanPeriod = int.Parse(LoanPeriodTxt.Text);
+                try
+                {
+                    rentedCar.LoanPeriod = int.Parse(LoanPeriodTxt.Text);
+                }
 
-                _view.LoadData(rentedCar);
-                _view.RentedCarsDataGrid.Items.Refresh();
+                catch
+                {
+                    MessageBox.Show("Invalid input or white space.");
+                    isInvalid = true;
+                }
+
+                if (!isInvalid)
+                {
+                    carModelContext.Cars.Remove(selectedCar);
+
+                    carModelContext.SaveChanges();
+                    CarsDataGrid.Items.Refresh();
+
+                    RentedCarsView rentedCarsView = new RentedCarsView();
+                    rentedCarsView.LoadData(rentedCar);
+                    rentedCarsView.RentedCarsDataGrid.Items.Refresh();
+                }
 
                 NameTxt.Clear();
                 SurnameTxt.Clear();
                 LoanPeriodTxt.Clear();
             }
+            else
+            {
+                MessageBox.Show("Please, fill the client form!");
+            }
+        }
+
+        private void LoanPeriodTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -52,5 +52,39 @@ namespace CHMS.Views
             RentedCarsDataGrid.Items.Refresh();
             rentedCarModelContext.SaveChanges();
         }
+
+        private void RentedCarsDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (RentedCarsDataGrid.SelectedItem != null)
+            {
+
+                RentedCarModel selectedCar = (RentedCarModel)RentedCarsDataGrid.SelectedItem;
+
+
+                CarModel car = new CarModel
+                {
+                    CarMake = selectedCar.RentedCarMake,
+                    Car_Model = selectedCar.RentedCar_Model,
+                    CarType = selectedCar.RentedCarType,
+                    CarColor = selectedCar.RentedCarColor,
+                    CarGearboxType = selectedCar.RentedCarGearboxType,
+                    Cost = selectedCar.RentedCost
+                };
+
+                rentedCarModelContext.RentedCars.Remove(selectedCar);
+
+                rentedCarModelContext.SaveChanges();
+                RentedCarsDataGrid.Items.Refresh();
+
+                AvailableCarsView availableCarsView = new AvailableCarsView();
+                availableCarsView.LoadData(car);
+                availableCarsView.CarsDataGrid.Items.Refresh();
+    }
+        }
+
+        private void RentedCarsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

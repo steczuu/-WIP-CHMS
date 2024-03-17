@@ -27,7 +27,8 @@
               Background="#272B2F"
               Foreground="#189AB4"
               Height="600"
-              VerticalAlignment="Top">
+              VerticalAlignment="Top"
+              MouseDoubleClick="RentedCarsDataGrid_MouseDoubleClick" SelectionChanged="RentedCarsDataGrid_SelectionChanged">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding RentedCarMake}"
@@ -53,6 +54,10 @@
                 <DataGridTextColumn Binding="{Binding RentedCost}"
                                 Header="Cost per day" Width="SizeToHeader"
                                 IsReadOnly="True"/>
+
+                <DataGridTextColumn Binding="{Binding RentedDate}"
+                                    Header="Rental date" Width="SizeToHeader"
+                                    IsReadOnly="True"/>
 
                 <DataGridTextColumn Binding="{Binding Name}"
                                     Header="Name" Width="SizeToHeader"
